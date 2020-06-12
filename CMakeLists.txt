@@ -421,8 +421,17 @@ ADD_SUBDIRECTORY(src/apps)
 # -----------------------------------------------------------------------------TESTS--
 # Include testing flag(s) as precomiler 
 # definitions and include test directives
-enable_testing()
-include(${CMAKE_SOURCE_DIR}/tests/RelionTests.cmake)
+if(BUILD_TESTS)
+	find_package(Catch2 REQUIRED)
+
+	add_library(Catch2 INTERFACE)
+	target_include_directories(Catch2
+		INTERFACE
+		${CATCH2_INCLUDE_DIR})
+
+	include(CTest)
+	add_subdirectory(tests tests)
+endif()
 
 # ----------------------------------------------------------PRINT OUT ALL CMAKE VARS--
 #get_cmake_property(_variableNames VARIABLES)
