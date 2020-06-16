@@ -4,7 +4,7 @@ add_executable(catchTest
 	)
 
 target_link_libraries(catchTest Catch2::Catch2)
-target_link_libraries(catchTest ${CMAKE_SOURCE_DIR}/lib/librelion_lib.a)
+target_link_libraries(catchTest ${CMAKE_BINARY_DIR}/lib/librelion_lib.a)
 target_link_libraries(catchTest fftw3)
 target_link_libraries(catchTest tiff)
 
