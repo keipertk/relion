@@ -1,6 +1,7 @@
 add_executable(catchTest
 	catchMain.cpp
 	test_ctf.cpp
+	test_factorial.cpp	
 	)
 
 target_link_libraries(catchTest Catch2::Catch2)
